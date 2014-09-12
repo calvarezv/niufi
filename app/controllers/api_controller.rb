@@ -8,6 +8,8 @@ class ApiController < ApplicationController
 
 	def testConnection
 		@validator = VALIDATOR
+		render :text => VALIDATOR
+		""
 	end
 
 	def receiveEvents
