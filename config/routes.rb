@@ -1,9 +1,24 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :events
 
+
+  ## HOMEPAGE
   # map.root :controller => "api", :action => "testConnection"
+
+  ## MODELS
+  ## APIS
   map.connect 'api/event', :controller => "api", :action => "testConnection", :conditions => { :method => :get }
   map.connect 'api/event', :controller => "api", :action => "receiveEvents", :conditions => { :method => :post }
+
+  ## DEFAULTS
+  map.connect ':controller/:action/:id'
+  map.connect ':controller/:action/:id.:format'
   
+
+
+
+
+  ## EXAMPLES
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -43,6 +58,4 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing or commenting them out if you're using named routes and resources.
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
 end

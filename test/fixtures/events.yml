@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ap_mac: MyString
+  client_mac: MyString
+  is_associated: false
+  rssi: 1
+  rssi_db: 1
+  last_seen: 2014-09-12 16:51:33
+
+two:
+  ap_mac: MyString
+  client_mac: MyString
+  is_associated: false
+  rssi: 1
+  rssi_db: 1
+  last_seen: 2014-09-12 16:51:33

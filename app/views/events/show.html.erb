@@ -1,0 +1,33 @@
+<p>
+  <b>Ap mac:</b>
+  <%=h @event.ap_mac %>
+</p>
+
+<p>
+  <b>Client mac:</b>
+  <%=h @event.client_mac %>
+</p>
+
+<p>
+  <b>Is associated:</b>
+  <%=h @event.is_associated %>
+</p>
+
+<p>
+  <b>Rssi:</b>
+  <%=h @event.rssi %>
+</p>
+
+<p>
+  <b>Rssi db:</b>
+  <%=h @event.rssi_db %>
+</p>
+
+<p>
+  <b>Last seen:</b>
+  <%=h @event.last_seen %>
+</p>
+
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

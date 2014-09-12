@@ -1,0 +1,35 @@
+<h1>New event</h1>
+
+<% form_for(@event) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :ap_mac %><br />
+    <%= f.text_field :ap_mac %>
+  </p>
+  <p>
+    <%= f.label :client_mac %><br />
+    <%= f.text_field :client_mac %>
+  </p>
+  <p>
+    <%= f.label :is_associated %><br />
+    <%= f.check_box :is_associated %>
+  </p>
+  <p>
+    <%= f.label :rssi %><br />
+    <%= f.text_field :rssi %>
+  </p>
+  <p>
+    <%= f.label :rssi_db %><br />
+    <%= f.text_field :rssi_db %>
+  </p>
+  <p>
+    <%= f.label :last_seen %><br />
+    <%= f.datetime_select :last_seen %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', events_path %>

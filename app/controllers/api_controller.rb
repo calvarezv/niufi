@@ -12,17 +12,19 @@ class ApiController < ApplicationController
 	end
 
 	def receiveEvents
-		@events = Array.new
 		map = JSON.parse(params[:data])
 		if map['secret'] != SECRET
-			logger.warn "got post with bad secret: #{SECRET}"
-			@events << "got post with bad secret: #{SECRET}"
+			logger.warn "Got post with bad secret: #{SECRET}"
 			return ""
 		end
 
 		map['probing'].each do |c|
-			logger.info "client #{c['client_mac']} seen on ap #{c['ap_mac']} with rssi #{c['rssi']} at #{c['last_seen']}"
-			@events << "client #{c['client_mac']} seen on ap #{c['ap_mac']} with rssi #{c['rssi']} at #{c['last_seen']}"
+			e = Event.parse_event(c)
+			if e.save
+				logger.info "Client #{e.client_mac} seen on ap #{e.ap_mac} with rssi #{e.rssi.to_s} at #{e.last_seen}. " + (e.is_associated ? "Is associated." : "Is not associated.")
+			else
+				logger.error "Event can't be stored."
+			end
 		end
 	end
 	

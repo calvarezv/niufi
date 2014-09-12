@@ -1,0 +1,30 @@
+<h1>Listing events</h1>
+
+<table>
+  <tr>
+    <th>Ap mac</th>
+    <th>Client mac</th>
+    <th>Is associated</th>
+    <th>Rssi</th>
+    <th>Rssi db</th>
+    <th>Last seen</th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr>
+    <td><%=h event.ap_mac %></td>
+    <td><%=h event.client_mac %></td>
+    <td><%=h event.is_associated %></td>
+    <td><%=h event.rssi %></td>
+    <td><%=h event.rssi_db %></td>
+    <td><%=h event.last_seen %></td>
+    <td><%= link_to 'Show', event %></td>
+    <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    <td><%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New event', new_event_path %>
