@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :events
 
+  
 
   ## HOMEPAGE
   # map.root :controller => "api", :action => "testConnection"
@@ -11,8 +12,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'api/event', :controller => "api", :action => "receiveEvents", :conditions => { :method => :post }
 
   ## DEFAULTS
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  map.connect ENV['RAILS_RELATIVE_URL_ROOT'] + ':controller/:action/:id'
+  map.connect ENV['RAILS_RELATIVE_URL_ROOT'] + ':controller/:action/:id.:format'
   
 
 
